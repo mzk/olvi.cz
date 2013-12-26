@@ -1,0 +1,8 @@
+.DEVEL
+.idea
+www/up/*
+/vendor/
+tmp
+temp
+log
+app/config/config.local.neon

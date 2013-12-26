@@ -1,0 +1,203 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "73ffbdc21e6801f14b24aa7594e2ec76",
+    "packages": [
+        {
+            "name": "nette/nette",
+            "version": "dev-release-2.1.x",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/nette.git",
+                "reference": "0f5089d7b1d622da0268f63aaca4b68def75740a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/nette/zipball/0f5089d7b1d622da0268f63aaca4b68def75740a",
+                "reference": "0f5089d7b1d622da0268f63aaca4b68def75740a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-tokenizer": "*",
+                "php": ">=5.3.1"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "suggest": {
+                "ext-fileinfo": "*",
+                "ext-gd": "*",
+                "ext-mbstring": "*",
+                "ext-pdo": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-release-2.1.x": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "Nette/"
+                ],
+                "files": [
+                    "Nette/common/shortcuts.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "Forms",
+                "database",
+                "debugging",
+                "framework",
+                "mailing",
+                "mvc",
+                "templating"
+            ],
+            "time": "2013-12-23 10:20:55"
+        },
+        {
+            "name": "nette/tester",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/tester.git",
+                "reference": "70d47349142b129f83e54ff0cad4c7acddc9429c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/tester/zipball/70d47349142b129f83e54ff0cad4c7acddc9429c",
+                "reference": "70d47349142b129f83e54ff0cad4c7acddc9429c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "Tester/tester",
+                "Tester/coverage-report"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Tester/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "http://nette.org/contributors"
+                }
+            ],
+            "description": "An easy-to-use PHP Unit Testing framework.",
+            "homepage": "http://nette.org",
+            "keywords": [
+                "nette",
+                "testing",
+                "unit"
+            ],
+            "time": "2013-12-18 17:57:00"
+        },
+        {
+            "name": "texy/texy",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dg/texy.git",
+                "reference": "d2dbd6427853b39c7c7c7e457c9713dd932d609d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dg/texy/zipball/d2dbd6427853b39c7c7c7e457c9713dd932d609d",
+                "reference": "d2dbd6427853b39c7c7c7e457c9713dd932d609d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "nette/tester": "0.9.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/texy.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "http://davidgrudl.com"
+                }
+            ],
+            "description": "Texy converts plain text in easy to read Texy syntax into structurally valid (X)HTML. It supports adding of images, links, nested lists, tables and has full support for CSS. Texy supports hyphenation of long words (which reflects language rules), clickable emails and URL (emails are obfuscated against spambots), national typographic single and double quotation marks, ellipses, em dashes, dimension sign, nonbreakable spaces (e.g. in phone numbers), acronyms, arrows and many others. Texy code can optionally contain HTML tags.",
+            "homepage": "http://texy.info",
+            "keywords": [
+                "html",
+                "markdown",
+                "markup language",
+                "plain text",
+                "text",
+                "textile",
+                "texy",
+                "wiki",
+                "xhtml"
+            ],
+            "time": "2013-07-18 01:19:38"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "nette/nette": 20,
+        "nette/tester": 20,
+        "texy/texy": 20
+    },
+    "platform": {
+        "php": ">=5.3.2"
+    },
+    "platform-dev": [
+
+    ]
+}
