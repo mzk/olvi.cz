@@ -7,25 +7,51 @@
 *}
 
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Language" content="cs"/>
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+	<title>{block title|striptags}Nette Application Skeleton{/block}</title>
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	{block head}{/block}
 </head>
 
 <body>
-<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+<div class="container">
+	<div class="page-header">
+		<h1>Vinotéka Olvi - Vína z Moravy v Poděbradech</h1>
 
-{include content}
+		<p class="lead">Máme rádi dobrou a kvalitní kuchyni a k tomu patří i dobré a kvalitní víno.</p>
 
+		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<ul class="nav nav-pills nav-stacked">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Messages</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10">
+			{include content|texy}
+		</div>
+	</div>
+	<div class="panel-footer">
+		<p>&copy; {? echo date('Y')} <a href="{plink //default:}">Vinotéka Olvi.cz</a>.<br/>
+			Stránka generována {? $date = date(time());}{$date|date:"d.m. Y, H:i:s"}
+			za <?php echo round(\Nette\Diagnostics\Debugger::timer(), 4); ?>
+			s</p>
+	</div>
+
+</div>
 {block scripts}
 <script src="{$basePath}/js/jquery.js"></script>
 <script src="{$basePath}/js/netteForms.js"></script>
