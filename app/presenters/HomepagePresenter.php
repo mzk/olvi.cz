@@ -13,7 +13,7 @@ class HomepagePresenter extends BasePresenter
 
 	public function renderDefault()
 	{
-
+		$this->template->pageName = 'default';
 	}
 
 	public function renderStatic($page)
@@ -24,6 +24,7 @@ class HomepagePresenter extends BasePresenter
 			throw new Nette\Application\BadRequestException();
 		}
 		$this->template->pageName = $escapedName;
+		$this->template->title = $escapedName;
 	}
 
 }

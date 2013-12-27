@@ -15,9 +15,10 @@
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{block title|striptags}Nette Application Skeleton{/block}</title>
+	<title>{$title} - Vinotéka Olvi</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	{block head}{/block}
@@ -26,7 +27,7 @@
 <body>
 <div class="container">
 	<div class="page-header">
-		<h1>Vinotéka Olvi - Vína z Moravy v Poděbradech</h1>
+		<h1><a n:href="Homepage:">Vinotéka Olvi - Vína z Moravy v Poděbradech</a></h1>
 
 		<p class="lead">Máme rádi dobrou a kvalitní kuchyni a k tomu patří i dobré a kvalitní víno.</p>
 
@@ -35,23 +36,25 @@
 	<div class="row">
 		<div class="col-md-2">
 			<ul class="nav nav-pills nav-stacked">
-				<li class="active"><a n:href="Homepage:default">O nás</a></li>
-				<li><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
-				<li><a n:href="Homepage:static, 'vino'">Ve víně je pravda</a></li>
-				<li><a n:href="Homepage:static, 'oteviraci-doba'">Kdy máme otevřeno?</a></li>
+				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default">O nás</a></li>
+				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
+				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'">Ve víně je pravda</a></li>
+				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'">Kdy máme otevřeno?</a></li>
 			</ul>
 		</div>
 		<div class="col-md-10">
+			<img src="/images/oleje-1.jpg" width="200px" />
+			<img src="/images/oleje-2.jpg" width="200px" />
+			<img src="/images/oleje-3.jpg" width="200px" />
 			{include content|texy}
 		</div>
 	</div>
-	<div class="panel-footer navbar-fixed-bottom">
-		<p>&copy; {? echo date('Y')} <a href="{plink //default:}">Vinotéka Olvi.cz</a>.<br/>
+	<div id="footer">
+		<p>&copy; {? echo date('Y')} <a n:href="//Homepage:">Vinotéka Olvi.cz</a>.<br/>
 			Stránka generována {? $date = date(time());}{$date|date:"d.m. Y, H:i:s"}
 			za <?php echo round(\Nette\Diagnostics\Debugger::timer(), 4); ?>
 			s</p>
 	</div>
-
 </div>
 {block scripts}
 <script src="{$basePath}/js/jquery.js"></script>
