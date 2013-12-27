@@ -7,6 +7,13 @@ if (!class_exists('Tester\Assert')) {
 	exit(1);
 }
 
+$whoami = trim(shell_exec('whoami'));
+if ($whoami != 'www-data') {
+	echo "$whoami:";;
+	echo "run as www-data";
+	exit(1);
+}
+
 Tester\Environment::setup();
 
 function id($val) {
@@ -14,7 +21,7 @@ function id($val) {
 }
 
 $configurator = new Nette\Configurator;
-$configurator->setDebugMode(FALSE);
+$configurator->setDebugMode(true);
 $configurator->setTempDirectory(__DIR__ . '/../temp');
 $configurator->createRobotLoader()
 	->addDirectory(__DIR__ . '/../app')
@@ -22,4 +29,8 @@ $configurator->createRobotLoader()
 
 $configurator->addConfig(__DIR__ . '/../app/config/config.neon');
 $configurator->addConfig(__DIR__ . '/../app/config/config.local.neon');
+
+
+include __DIR__.'/app/TestBaseCase.php';
+
 return $configurator->createContainer();

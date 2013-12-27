@@ -64,7 +64,7 @@ fi
 
 if $copt; then
 	echo "\n\033[1;32m================= Nette Tester ====================\033[0m"
-	su www-data -c 'php ./vendor/nette/tester/Tester/tester.php -s -c /etc/php5/apache2/php.ini -log ./log/tests.output.html ./tests/ -j 1'
+	su www-data -c 'php ./vendor/nette/tester/Tester/tester.php -s -c /etc/php5/apache2/php.ini -log ./log/tests.output.html --debug ./tests/ -j 1'
 fi
 
 if $gopt; then
