@@ -35,16 +35,17 @@
 	<div class="row">
 		<div class="col-md-2">
 			<ul class="nav nav-pills nav-stacked">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Profile</a></li>
-				<li><a href="#">Messages</a></li>
+				<li class="active"><a n:href="Homepage:default">O nás</a></li>
+				<li><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
+				<li><a n:href="Homepage:static, 'vino'">Ve víně je pravda</a></li>
+				<li><a n:href="Homepage:static, 'oteviraci-doba'">Kdy máme otevřeno?</a></li>
 			</ul>
 		</div>
 		<div class="col-md-10">
 			{include content|texy}
 		</div>
 	</div>
-	<div class="panel-footer">
+	<div class="panel-footer navbar-fixed-bottom">
 		<p>&copy; {? echo date('Y')} <a href="{plink //default:}">Vinotéka Olvi.cz</a>.<br/>
 			Stránka generována {? $date = date(time());}{$date|date:"d.m. Y, H:i:s"}
 			za <?php echo round(\Nette\Diagnostics\Debugger::timer(), 4); ?>
