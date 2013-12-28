@@ -27,9 +27,9 @@
 <body>
 <div class="container">
 	<div class="page-header">
-		<h1><a n:href="Homepage:">Vinotéka Olvi - Vína z Moravy v Poděbradech</a></h1>
+		<h1><a n:href="Homepage:">Vinotéka Olvi - Vína z Moravy</a></h1>
 
-		<p class="lead">Máme rádi dobrou a kvalitní kuchyni a k tomu patří i dobré a kvalitní víno.</p>
+		<p class="lead">Máme rádi dobrou a kvalitní kuchyni a k tomu patří i dobré a kvalitní víno. Moravská vína v Poděbradech</p>
 
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 	</div>
@@ -43,9 +43,22 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<img src="/images/oleje-1.jpg" width="200px" />
-			<img src="/images/oleje-2.jpg" width="200px" />
-			<img src="/images/oleje-3.jpg" width="200px" />
+			<?php
+			$imagesOil = array('oleje-1.jpg', 'oleje-2.jpg', 'oleje-3.jpg');
+			$imagesVine = function() {
+				$images = array();
+				for ($i = 1; $i < 10; $i++) {
+					$images[] = 'vina-'.sprintf("%02d", $i).'.jpg';
+				}
+				return $images;
+			};
+			$images = array_merge($imagesOil ,$imagesVine());
+			shuffle($images);
+			?>
+			{for $i = 1; $i < 5; $i++}
+			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px" /></a>
+			{/for}
+
 			{include content|texy}
 		</div>
 	</div>
