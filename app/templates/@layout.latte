@@ -21,7 +21,10 @@
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-	{block head}{/block}
+
+	<script src="{$basePath}/js/jquery-1.10.2.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	{block specialjs}{/block}
 </head>
 
 <body>
@@ -29,50 +32,51 @@
 	<div class="page-header">
 		<h1><a n:href="Homepage:">Vinotéka Olvi - Vína z Moravy</a></h1>
 
-		<p class="lead">Máme rádi dobrou a kvalitní kuchyni a k tomu patří i dobré a kvalitní víno. Moravská vína v Poděbradech</p>
+		<p class="lead">Máme rádi dobrou a kvalitní kuchyni a k tomu patří i dobré a kvalitní víno. Moravská vína v
+			Poděbradech</p>
 
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 	</div>
 	<div class="row">
 		<div class="col-md-2">
 			<ul class="nav nav-pills nav-stacked">
-				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default">O nás</a></li>
-				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
-				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'">Ve víně je pravda</a></li>
-				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'">Kdy máme otevřeno?</a></li>
+				<li
+				{if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default">O nás</a></li>
+				<li
+				{if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
+				<li
+				{if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'">Ve víně je
+					pravda</a></li>
+				<li
+				{if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'">Kdy
+					máme otevřeno?</a></li>
 			</ul>
 		</div>
 		<div class="col-md-10">
 			<?php
 			$imagesOil = array('oleje-1.jpg', 'oleje-2.jpg', 'oleje-3.jpg');
-			$imagesVine = function() {
+			$imagesVine = function () {
 				$images = array();
 				for ($i = 1; $i < 10; $i++) {
-					$images[] = 'vina-'.sprintf("%02d", $i).'.jpg';
+					$images[] = 'vina-' . sprintf("%02d", $i) . '.jpg';
 				}
 				return $images;
 			};
-			$images = array_merge($imagesOil ,$imagesVine());
+			$images = array_merge($imagesOil, $imagesVine());
 			shuffle($images);
 			?>
 			{for $i = 1; $i < 5; $i++}
-			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px" /></a>
+			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px"/></a>
 			{/for}
 
-			{include content|texy}
+			{include content}
 		</div>
 	</div>
 	<div id="footer">
 		<p>&copy; {? echo date('Y')} <a n:href="//Homepage:">Vinotéka Olvi.cz</a>.<br/>
 			Stránka generována {? $date = date(time());}{$date|date:"d.m. Y, H:i:s"}
-			za <?php echo round(\Nette\Diagnostics\Debugger::timer(), 4); ?>
-			s</p>
+			za <?php echo round(\Nette\Diagnostics\Debugger::timer(), 4); ?>s</p>
 	</div>
 </div>
-{block scripts}
-<script src="{$basePath}/js/jquery-1.10.2.js"></script>
-<script src="{$basePath}/js/netteForms.js"></script>
-
-{/block}
 </body>
 </html>

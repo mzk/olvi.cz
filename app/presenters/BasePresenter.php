@@ -19,8 +19,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		$tpl = parent::createTemplate($class);
 
-		// registrace Texy helperu
-		$tpl->registerHelper('texy', callback(new \Texy(), 'process'));
+		$texy = new \Texy();
+
+		$tpl->registerHelper('texy', callback($texy, 'process'));
 		return $tpl;
 	}
 

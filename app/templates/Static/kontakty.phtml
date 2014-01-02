@@ -1,3 +1,4 @@
+{block|texy}
 Kontakty
 ========
 
@@ -33,73 +34,42 @@ Kamnenný obchod:
 Vinotéka OLVI Palachova 424/16 (naproti  ZŠ  T.G.Masaryka)
 290 01 Poděbrady
 
-/---html
-<div id="m" style="width:600px; height:400px;"></div>
+Mapa
+-----
+{/block}
 
+
+{block specialjs}
 <script type="text/javascript" src="http://api4.mapy.cz/loader.js"></script>
 <script type="text/javascript">Loader.load();</script>
+{/block}
 
+
+<div id="m" style="width:800px; height:500px;"></div>
 <script type="text/javascript" n:syntax="off">
-	var obrazek = "http://api4.mapy.cz/img/api/marker/drop-red.png";
+	var center = SMap.Coords.fromWGS84(15.1173528, 50.1474131);
+	//50.1474131N, 15.1173528E
+	var m = new SMap(JAK.gel("m"), center, 15);
+	m.addDefaultLayer(SMap.DEF_SMART_BASE).enable();
+	m.addDefaultControls();
 
-	var m = new SMap(JAK.gel("m"));
-	m.addControl(new SMap.Control.Sync());
-	/* Aby mapa reagovala na změnu velikosti průhledu */
-	m.addDefaultLayer(SMap.DEF_BASE).enable();
-	/* Turistický podklad */
-	var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM);
-	/* Ovládání myší */
-	m.addControl(mouse);
+	var layer = new SMap.Layer.Marker();
+	m.addLayer(layer);
+	layer.enable();
 
-	var data = {
-		"Karlštejn": "49°56'21.57\"N,14°11'17.96\"E",
-		"Křivoklát": "50°2'16.36\"N,13°52'18.59\"E",
-		"Kost": "50°29'24.83\"N,15°8'6.38\"E"
-	};
-	var znacky = [];
-	var souradnice = [];
+	var card = new SMap.Card();
+	card.getHeader().innerHTML = "<strong>Vinotéka Olvi</strong>";
+	card.getBody().innerHTML = "Vinotéka OLVI Palachova 424/16 (naproti ZŠ T.G.Masaryka) 290 01 Poděbrady";
 
-	for (var name in data) { /* Vyrobit značky */
-		var c = SMap.Coords.fromWGS84(data[name]);
-		/* Souřadnice značky, z textového formátu souřadnic */
-
-		var options = {
-			url: obrazek,
-			title: name,
-			anchor: {left: 10, bottom: 1}  /* Ukotvení značky za bod uprostřed dole */
-		}
-
-		var znacka = new SMap.Marker(c, null, options);
-		souradnice.push(c);
-		znacky.push(znacka);
-	}
-
-
-	/* Křivoklát ukotvíme za střed značky, přestože neznáme její velikost */
 	var options = {
-		anchor: {left: 0.5, top: 0.5}
-	}
-	znacky[1].decorate(SMap.Marker.Feature.RelativeAnchor, options);
+		title: "Vinotéka Olvi"
+	};
+	var marker = new SMap.Marker(center, "myMarker", options);
+	marker.decorate(SMap.Marker.Feature.Card, card);
+	layer.addMarker(marker);
 
-	var vrstva = new SMap.Layer.Marker();
-	/* Vrstva se značkami */
-	m.addLayer(vrstva);
-	/* Přidat ji do mapy */
-	vrstva.enable();
-	/* A povolit */
-	for (var i = 0; i < znacky.length; i++) {
-		vrstva.addMarker(znacky[i]);
-	}
+//		"Vinotéka Olvi": "50°8'50.687\"N,15°7'2.470\"E"
 
-	var cz = m.computeCenterZoom(souradnice);
-	/* Spočítat pozici mapy tak, aby značky byly vidět */
-	m.setCenterZoom(cz[0], cz[1]);
 
 </script>
 
-{block head}
-<script src="{$basePath}/js/jquery-1.10.2.js"></script>
-<script src="{$basePath}/js/netteForms.js"></script>
-{/block}
-
-\---
