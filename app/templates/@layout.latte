@@ -16,15 +16,18 @@
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
 	<title>{$title} - Vinotéka Olvi</title>
-
+	{if $isDevel}
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
+	{else}
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">
+	{/if}
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-
+	{if !$isMobile}
 	<script src="{$basePath}/js/jquery-1.10.2.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
-	{block specialjs}{/block}
+	{/if}
 </head>
 
 <body>
@@ -42,17 +45,15 @@
 			<ul class="nav nav-pills nav-stacked">
 				<li
 				{if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default">O nás</a></li>
-				<li
-				{if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
-				<li
-				{if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'">Ve víně je
-					pravda</a></li>
-				<li
-				{if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'">Kdy
-					máme otevřeno?</a></li>
+				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
+				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'">Ve víně je pravda</a></li>
+				<li {if $pageName == 'oleje'}class="active"{/if}><a n:href="Homepage:static, 'oleje'">Nabídka Olejů</a></li>
+				<li {if $pageName == 'oleje-recepty'}class="active"{/if}><a n:href="Homepage:static, 'oleje-recepty'">Oleje - recepty</a></li>
+				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'">Kdy máme otevřeno?</a></li>
 			</ul>
 		</div>
 		<div class="col-md-10">
+			{if !$isMobile}
 			<?php
 			$imagesOil = array('oleje-1.jpg', 'oleje-2.jpg', 'oleje-3.jpg');
 			$imagesVine = function () {
@@ -68,6 +69,7 @@
 			{for $i = 1; $i < 5; $i++}
 			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px"/></a>
 			{/for}
+			{/if}
 
 			{include content}
 		</div>

@@ -38,14 +38,13 @@ Mapa
 -----
 {/block}
 
-
-{block specialjs}
+{if $isMobile}
+<a href="http://m.mapy.cz/map?searchIndex=0&fullDetail=0&offset=0&query=Palachova%20424%2F16&sznu=I05nFZlDfKRQ8tYr&appy=136160883&appx=134668307&pId=10765699&pType=addr&imgIndex=0&t=0&y=50.1474134643&x=15.1173532581&z=16&ref=%2Fdetail&itemIndex=0"><img src="/images/mapa.jpg" class="img-responsive" alt="mapa" title="Zobrazit na mapě" /></a>.<br />
+{else}
 <script type="text/javascript" src="http://api4.mapy.cz/loader.js"></script>
 <script type="text/javascript">Loader.load();</script>
-{/block}
 
-
-<div id="m" style="width:800px; height:500px;"></div>
+<div id="m" style="height:400px;"></div>
 <script type="text/javascript" n:syntax="off">
 	var center = SMap.Coords.fromWGS84(15.1173528, 50.1474131);
 	//50.1474131N, 15.1173528E
@@ -59,7 +58,7 @@ Mapa
 
 	var card = new SMap.Card();
 	card.getHeader().innerHTML = "<strong>Vinotéka Olvi</strong>";
-	card.getBody().innerHTML = "Vinotéka OLVI Palachova 424/16 (naproti ZŠ T.G.Masaryka) 290 01 Poděbrady";
+	card.getBody().innerHTML = "Palachova 424/16<br />(naproti ZŠ T.G.Masaryka)<br />290 01 Poděbrady";
 
 	var options = {
 		title: "Vinotéka Olvi"
@@ -68,8 +67,6 @@ Mapa
 	marker.decorate(SMap.Marker.Feature.Card, card);
 	layer.addMarker(marker);
 
-//		"Vinotéka Olvi": "50°8'50.687\"N,15°7'2.470\"E"
-
-
 </script>
 
+{/if}

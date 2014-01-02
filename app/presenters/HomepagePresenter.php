@@ -19,12 +19,17 @@ class HomepagePresenter extends BasePresenter
 	public function renderStatic($page)
 	{
 		$allowed = "/[^a-z0-9\\-]/";
-		$escapedName = preg_replace($allowed,"",$page);
+		$escapedName = preg_replace($allowed, "", $page);
 		if ($page != $escapedName) {
 			throw new Nette\Application\BadRequestException();
 		}
-		$this->template->pageName = $escapedName;
-		$this->template->title = $escapedName;
+
+		if (file_exists(__DIR__ . '/../templates/Static/' . $escapedName . '.phtml')) {
+			$this->template->pageName = $escapedName;
+			$this->template->title = $escapedName;
+		} else {
+			throw new Nette\Application\BadRequestException;
+		}
 	}
 
 }

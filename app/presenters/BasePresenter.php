@@ -13,6 +13,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	public function beforeRender() {
 		$this->invalidLinkMode = self::INVALID_LINK_EXCEPTION;
 		$this->template->title = '';
+		$this->template->pageName = '';
+		$detect = new \MobileDetect();
+		$this->template->isMobile = $detect->isMobile();
+		$this->template->isDevel = IS_DEVEL;
 	}
 
 	protected function createTemplate($class = NULL)
