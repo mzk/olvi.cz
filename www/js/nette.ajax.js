@@ -9,7 +9,7 @@
  * @version 1.2.2
  */
 
-(function(window, $, undefined) {
+(function (window, $, undefined) {
 
 	if (typeof $ != 'function') {
 		return console.error('nette.ajax.js: jQuery is missing, load it please');
@@ -494,16 +494,16 @@
 	$.nette.ext('init', {
 		load: function (rh) {
 			$(this.linkSelector).off('click.nette', rh).on('click.nette', rh);
-//			$(this.formSelector).off('submit.nette', rh).on('submit.nette', rh)
-//				.off('click.nette', ':image', rh).on('click.nette', ':image', rh)
-//				.off('click.nette', ':submit', rh).on('click.nette', ':submit', rh);
-//			$(this.buttonSelector).closest('form')
-//				.off('click.nette', this.buttonSelector, rh).on('click.nette', this.buttonSelector, rh);
+			$(this.formSelector).off('submit.nette', rh).on('submit.nette', rh)
+				.off('click.nette', ':image', rh).on('click.nette', ':image', rh)
+				.off('click.nette', ':submit', rh).on('click.nette', ':submit', rh);
+			$(this.buttonSelector).closest('form')
+				.off('click.nette', this.buttonSelector, rh).on('click.nette', this.buttonSelector, rh);
 		}
 	}, {
 		linkSelector: 'a.ajax',
-		//formSelector: 'form.ajax',
-		//buttonSelector: 'input.ajax[type="submit"], button.ajax[type="submit"], input.ajax[type="image"]'
+		formSelector: 'form.ajax',
+		buttonSelector: 'input.ajax[type="submit"], button.ajax[type="submit"], input.ajax[type="image"]'
 	});
 
 })(window, window.jQuery);
@@ -511,3 +511,4 @@
 $(function () {
 	$.nette.init();
 });
+

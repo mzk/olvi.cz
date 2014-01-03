@@ -39,7 +39,10 @@ Mapa
 {/block}
 
 {if $isMobile}
-<a href="http://m.mapy.cz/map?searchIndex=0&fullDetail=0&offset=0&query=Palachova%20424%2F16&sznu=I05nFZlDfKRQ8tYr&appy=136160883&appx=134668307&pId=10765699&pType=addr&imgIndex=0&t=0&y=50.1474134643&x=15.1173532581&z=16&ref=%2Fdetail&itemIndex=0"><img src="/images/mapa.jpg" class="img-responsive" alt="mapa" title="Zobrazit na mapě" /></a>.<br />
+<a
+	href="http://m.mapy.cz/map?searchIndex=0&fullDetail=0&offset=0&query=Palachova%20424%2F16&sznu=I05nFZlDfKRQ8tYr&appy=136160883&appx=134668307&pId=10765699&pType=addr&imgIndex=0&t=0&y=50.1474134643&x=15.1173532581&z=16&ref=%2Fdetail&itemIndex=0">
+	<img src="/images/mapa.jpg" class="img-responsive" alt="mapa" title="Zobrazit na mapě" />
+</a>.<br />
 {else}
 <script type="text/javascript" src="http://api4.mapy.cz/loader.js"></script>
 <script type="text/javascript">Loader.load();</script>
@@ -66,7 +69,6 @@ Mapa
 	var marker = new SMap.Marker(center, "myMarker", options);
 	marker.decorate(SMap.Marker.Feature.Card, card);
 	layer.addMarker(marker);
-
 </script>
 
 {/if}

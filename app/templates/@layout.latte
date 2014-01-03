@@ -14,8 +14,9 @@
 	<meta http-equiv="Content-Language" content="cs"/>
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
-
+	{snippet title}
 	<title>{$title} - Vinotéka Olvi</title>
+	{/snippet}
 	{if $isDevel}
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
 	{else}
@@ -47,15 +48,16 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2">
+			{snippet menubox}
 			<ul class="nav nav-pills nav-stacked">
-				<li
-				{if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default" class="ajax">O nás</a></li>
-				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'" class="ajax">Adresa</a></li>
+				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default" class="ajax">O nás</a></li>
+				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'">Adresa</a></li>
 				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'" class="ajax">Ve víně je pravda</a></li>
 				<li {if $pageName == 'oleje'}class="active"{/if}><a n:href="Homepage:static, 'oleje'" class="ajax">Nabídka Olejů</a></li>
 				<li {if $pageName == 'oleje-recepty'}class="active"{/if}><a n:href="Homepage:static, 'oleje-recepty'" class="ajax">Oleje - recepty</a></li>
 				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'" class="ajax">Kdy máme otevřeno?</a></li>
 			</ul>
+			{/snippet}
 		</div>
 		<div class="col-md-10">
 			{if !$isMobile}
