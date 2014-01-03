@@ -421,7 +421,10 @@
 			if (!back && $el.is('[data-ajax-append]')) {
 				$el.append(html);
 			} else {
-				$el.html(html);
+				$el.fadeTo("fast", 0.01, function () {
+					$(this).html(html).fadeTo("fast", 1);
+				});
+				//$el.html(html);
 			}
 		},
 		escapeSelector: function (selector) {
