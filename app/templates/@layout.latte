@@ -50,12 +50,12 @@
 		<div class="col-md-2">
 			{snippet menubox}
 			<ul class="nav nav-pills nav-stacked">
-				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default" class="ajax menu">O nás</a></li>
-				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static 'kontakty'" class="menu">Adresa</a></li>
-				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static, 'vino'" class="ajax menu">Ve víně je pravda</a></li>
-				<li {if $pageName == 'oleje'}class="active"{/if}><a n:href="Homepage:static, 'oleje'" class="ajax menu">Nabídka Olejů</a></li>
-				<li {if $pageName == 'oleje-recepty'}class="active"{/if}><a n:href="Homepage:static, 'oleje-recepty'" class="ajax menu">Oleje - recepty</a></li>
-				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static, 'oteviraci-doba'" class="ajax menu">Kdy máme otevřeno?</a></li>
+				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default#obsah" class="ajax menu">O nás</a></li>
+				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static#obsah 'kontakty'" class="menu">Adresa</a></li>
+				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static#obsah, 'vino'" class="ajax menu">Ve víně je pravda</a></li>
+				<li {if $pageName == 'oleje'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oleje'" class="ajax menu">Nabídka Olejů</a></li>
+				<li {if $pageName == 'oleje-recepty'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oleje-recepty'" class="ajax menu">Oleje - recepty</a></li>
+				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oteviraci-doba'" class="ajax menu">Kdy máme otevřeno?</a></li>
 			</ul>
 			{/snippet}
 		</div>
@@ -65,7 +65,7 @@
 			$imagesOil = array('oleje-1.jpg', 'oleje-2.jpg', 'oleje-3.jpg');
 			$imagesVine = function () {
 				$images = array();
-				for ($i = 1; $i < 10; $i++) {
+				for ($i = 1; $i < 11; $i++) {
 					$images[] = 'vina-' . sprintf("%02d", $i) . '.jpg';
 				}
 				return $images;
@@ -73,11 +73,14 @@
 			$images = array_merge($imagesOil, $imagesVine());
 			shuffle($images);
 			?>
+			<div class="hidden-xs">
 			{for $i = 1; $i < 5; $i++}
 			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px"/></a>
 			{/for}
+			</div>
 			{/if}
 			{snippet content}
+			<a name="obsah"></a>
 			{include content}
 			{/snippet}
 		</div>
