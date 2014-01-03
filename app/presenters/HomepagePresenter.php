@@ -15,7 +15,7 @@ class HomepagePresenter extends BasePresenter
 	{
 		if ($this->isAjax()) {
 			$this->redrawControl('content');
-			//$this->redrawControl('menubox');
+			$this->redrawControl('menubox');
 			$this->redrawControl('title');
 		}
 	}
