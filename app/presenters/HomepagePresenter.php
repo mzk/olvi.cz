@@ -11,6 +11,13 @@ use Nette, Model;
 class HomepagePresenter extends BasePresenter
 {
 
+	function afterRender()
+	{
+		if ($this->isAjax()) {
+			$this->redrawControl('content');
+		}
+	}
+
 	public function renderDefault()
 	{
 		$this->template->pageName = 'default';
