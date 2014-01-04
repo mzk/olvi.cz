@@ -389,6 +389,9 @@
 					}
 				});
 			}
+			if (payload.setTitle) {
+				document.title = payload.setTitle;
+			}
 		}
 	}, {
 		beforeQueue: [],

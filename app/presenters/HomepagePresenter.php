@@ -16,12 +16,14 @@ class HomepagePresenter extends BasePresenter
 		if ($this->isAjax()) {
 			$this->redrawControl('content');
 			//$this->redrawControl('menubox');
+			$this->payload->setTitle = ($this->template->title);
 			$this->redrawControl('title');
 		}
 	}
 
 	public function renderDefault()
 	{
+		$this->template->title = 'Nabídka vín z Moravy';
 		$this->template->pageName = 'default';
 	}
 
