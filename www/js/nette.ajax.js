@@ -427,6 +427,10 @@
 				$el.fadeTo("fast", 0.01, function () {
 					$(this).html(html).fadeTo("fast", 1);
 				});
+
+				$('html, body').animate({
+					scrollTop: $("#obsah").offset().top
+				}, 2000);
 				//$el.html(html);
 			}
 		},
