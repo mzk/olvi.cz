@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "73ffbdc21e6801f14b24aa7594e2ec76",
+    "hash": "3bab66f59ede4f73a25f483981488906",
     "packages": [
         {
             "name": "nette/nette",
@@ -82,12 +82,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "70d47349142b129f83e54ff0cad4c7acddc9429c"
+                "reference": "c81c686174e8b37ef960959f4f4ad92e65f9046e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/70d47349142b129f83e54ff0cad4c7acddc9429c",
-                "reference": "70d47349142b129f83e54ff0cad4c7acddc9429c",
+                "url": "https://api.github.com/repos/nette/tester/zipball/c81c686174e8b37ef960959f4f4ad92e65f9046e",
+                "reference": "c81c686174e8b37ef960959f4f4ad92e65f9046e",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "testing",
                 "unit"
             ],
-            "time": "2013-12-18 17:57:00"
+            "time": "2014-01-02 18:09:11"
         },
         {
             "name": "texy/texy",
@@ -183,16 +183,55 @@
         }
     ],
     "packages-dev": [
-
+        {
+            "name": "matthiasmullie/minify",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/minify.git",
+                "reference": "30797d842093c9926c5e3dfa9217f27fa6d3f694"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/minify/zipball/30797d842093c9926c5e3dfa9217f27fa6d3f694",
+                "reference": "30797d842093c9926c5e3dfa9217f27fa6d3f694",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "minify@mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSS & JS minifier",
+            "homepage": "https://github.com/matthiasmullie/minify",
+            "time": "2013-12-26 23:00:46"
+        }
     ],
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "nette/nette": 20,
         "nette/tester": 20,
-        "texy/texy": 20
+        "texy/texy": 20,
+        "matthiasmullie/minify": 20
     },
     "platform": {
         "php": ">=5.3.2"
