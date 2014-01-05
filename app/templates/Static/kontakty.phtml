@@ -1,12 +1,31 @@
 {block|texy}
+{if $isMobile}
 Kontakty
 ========
+.[table]
+| <img src="/images/mini/kontakty-radek.jpg" alt="Radek" class="img-responsive" /> |
+| **Radek Novotný** |
+| obchod |
+| <a href="tel:+420731539582">+420 731 539 582</a> |
+| radek.novotny@vinotékaolvi.cz |
 
 .[table]
-| | Radek Novotný | 							| Jana Kasardová |
-|Pozice | obchod | 								| zákaznická podpora |
-|Telefon|  +420 731 539 582 | 					| |
-| Email | radek.novotny@vinotékaolvi.cz | 		| info@vinotekaolvi.cz|
+| <img src="/images/mini/kontakty-jana.jpg" alt="Jana" class="img-responsive" /> |
+| **Jana Kasardová** |
+| zákaznická podpora |
+| |
+| info@vinotekaolvi.cz|
+
+
+{else}
+.[table]
+| 		| <img src="/images/kontakty-radek.jpg" alt="Radek" width="300px" /> | 	| <img src="/images/kontakty-jana.jpg" alt="Jana" width="300px" /> |
+| 		| **Radek Novotný** | 												| **Jana Kasardová** |
+|Pozice | obchod | 														| zákaznická podpora |
+|Telefon| <a href="tel:+420731539582">+420 731 539 582</a> | 			| |
+| Email | radek.novotny@vinotékaolvi.cz | 								| info@vinotekaolvi.cz|
+{/if}
+
 
 Fakturační údaje:
 -----------------
