@@ -430,7 +430,7 @@
 
 				$('html, body').animate({
 					scrollTop: $("#obsah").offset().top
-				}, 2000);
+				}, 500);
 				//$el.html(html);
 			}
 		},
