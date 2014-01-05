@@ -48,11 +48,13 @@
 			{snippet menubox}
 			<ul class="nav nav-pills nav-stacked">
 				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default#obsah" class="ajax menu">O nás</a></li>
-				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static#obsah 'kontakty'" class="menu">Adresa</a></li>
-				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static#obsah, 'vino'" class="ajax menu">Ve víně je pravda</a></li>
-				<li {if $pageName == 'oleje'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oleje'" class="ajax menu">Nabídka Olejů</a></li>
+				<li {if $pageName == 'adresa'}class="active"{/if}><a n:href="Homepage:static#obsah 'adresa'" class="menu">Adresa</a></li>
+				<li {if $pageName == 'vino'}class="active"{/if}><a n:href="Homepage:static#obsah, 'vino'" class="ajax menu">Nabídka Vína</a></li>
+				<li {if $pageName == 'oleje'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oleje'" class="ajax menu">Nabídka Oleje</a></li>
 				<li {if $pageName == 'oleje-recepty'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oleje-recepty'" class="ajax menu">Oleje - recepty</a></li>
 				<li {if $pageName == 'oteviraci-doba'}class="active"{/if}><a n:href="Homepage:static#obsah, 'oteviraci-doba'" class="ajax menu">Kdy máme otevřeno?</a></li>
+
+				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static#obsah 'kontakty'" class="menu">Kontakty</a></li>
 			</ul>
 			{/snippet}
 		</div>
@@ -68,10 +70,11 @@
 				return $images;
 			};
 			$images = array_merge($imagesOil, $imagesVine());
+
 			shuffle($images);
 			?>
-			<div class="hidden-xs">
-			{for $i = 1; $i < 5; $i++}
+			<div class="visible-lg">
+			{for $i = 0; $i < 4; $i++}
 			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px"/></a>
 			{/for}
 			</div>

@@ -2,22 +2,17 @@
 Kontakty
 ========
 
-
-| Radek Novotný | Jana Kasardová |
-| obchodní ředitel | zákaznická podpora |
-| Tel.: +420 731 539 582 |  |
-| E-mail: | E-mail:  |
-| radek.novotny@vinotékaolvi.cz | info@vinotekaolvi.cz|
-
+.[table]
+| | Radek Novotný | 							| Jana Kasardová |
+|Pozice | obchod | 								| zákaznická podpora |
+|Telefon|  +420 731 539 582 | 					| |
+| Email | radek.novotny@vinotékaolvi.cz | 		| info@vinotekaolvi.cz|
 
 Fakturační údaje:
 -----------------
 www.vinotekaolvi.cz
  IČ: 47649992
-
-**Sídlo firmy**
- Ratenice 181
- 289 11 Pečky
+ DIC CZ7203100861
 
 **Bankovní spojení**
  CZK v České republice
@@ -30,48 +25,4 @@ Jiné měny a mezinárodní platby:
  IBAN:CZ9420100000002300470476
  SWIFT/BIC KÓD: FIOBCZPPXXX
 
-
-Kamnenný obchod:
-
-Vinotéka OLVI
- Palachova 424/16 (naproti  ZŠ  T.G.Masaryka)
- 290 01 Poděbrady
-
-Mapa
------
 {/block}
-
-{if $isMobile}
-<a
-	href="http://m.mapy.cz/map?searchIndex=0&fullDetail=0&offset=0&query=Palachova%20424%2F16&sznu=I05nFZlDfKRQ8tYr&appy=136160883&appx=134668307&pId=10765699&pType=addr&imgIndex=0&t=0&y=50.1474134643&x=15.1173532581&z=16&ref=%2Fdetail&itemIndex=0">
-	<img src="/images/mapa.jpg" class="img-responsive" alt="mapa" title="Zobrazit na mapě" />
-</a>.<br />
-{else}
-<script type="text/javascript" src="http://api4.mapy.cz/loader.js"></script>
-<script type="text/javascript">Loader.load();</script>
-
-<div id="m" style="height:400px;"></div>
-<script type="text/javascript" n:syntax="off">
-	var center = SMap.Coords.fromWGS84(15.1173528, 50.1474131);
-	//50.1474131N, 15.1173528E
-	var m = new SMap(JAK.gel("m"), center, 15);
-	m.addDefaultLayer(SMap.DEF_SMART_BASE).enable();
-	m.addDefaultControls();
-
-	var layer = new SMap.Layer.Marker();
-	m.addLayer(layer);
-	layer.enable();
-
-	var card = new SMap.Card();
-	card.getHeader().innerHTML = "<strong>Vinotéka OLVI</strong>";
-	card.getBody().innerHTML = "Palachova 424/16<br />(naproti ZŠ T.G.Masaryka)<br />290 01 Poděbrady";
-
-	var options = {
-		title: "Vinotéka OLVI"
-	};
-	var marker = new SMap.Marker(center, "myMarker", options);
-	marker.decorate(SMap.Marker.Feature.Card, card);
-	layer.addMarker(marker);
-</script>
-
-{/if}
