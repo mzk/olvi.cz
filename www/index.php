@@ -6,7 +6,7 @@
 if (file_exists(__DIR__ . '/../.DEVEL')) {
 	define('IS_DEVEL', TRUE);
 } else {
-	define('IS_DEVEL', TRUE);
+	define('IS_DEVEL', FALSE);
 }
 
 // Let bootstrap create Dependency Injection container.
