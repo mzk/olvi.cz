@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3bab66f59ede4f73a25f483981488906",
+    "hash": "83da233ef51d5a36b4ffce49a6852ad5",
     "packages": [
         {
             "name": "nette/nette",
@@ -221,6 +221,50 @@
             "description": "CSS & JS minifier",
             "homepage": "https://github.com/matthiasmullie/minify",
             "time": "2013-12-26 23:00:46"
+        },
+        {
+            "name": "packagist/yuicompressor-bin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packagist/yuicompressor-bin.git",
+                "reference": "7d99543131ed6aaa70d2183f09fdef3a1ca1fe08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packagist/yuicompressor-bin/zipball/7d99543131ed6aaa70d2183f09fdef3a1ca1fe08",
+                "reference": "7d99543131ed6aaa70d2183f09fdef3a1ca1fe08",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/yuicompressor.jar"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Yahoo! Inc.",
+                    "homepage": "http://yuilibrary.com"
+                },
+                {
+                    "name": "Krusty Kode",
+                    "email": "kaiwa@20minutemail.com",
+                    "role": "maintainer"
+                }
+            ],
+            "description": "YUI Compressor packaged for composer. JavaScript and CSS minification.",
+            "homepage": "http://yui.github.io/yuicompressor",
+            "keywords": [
+                "compressor",
+                "css",
+                "javascript",
+                "minification",
+                "yui"
+            ],
+            "time": "2013-07-15 18:26:22"
         }
     ],
     "aliases": [
@@ -231,7 +275,8 @@
         "nette/nette": 20,
         "nette/tester": 20,
         "texy/texy": 20,
-        "matthiasmullie/minify": 20
+        "matthiasmullie/minify": 20,
+        "packagist/yuicompressor-bin": 20
     },
     "platform": {
         "php": ">=5.3.2"

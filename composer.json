@@ -32,6 +32,6 @@
 		"texy/texy": "dev-master"
 	},
 	"require-dev": {
-		"matthiasmullie/minify": "dev-master"
+		"packagist/yuicompressor-bin": "dev-master"
 	}
 }
