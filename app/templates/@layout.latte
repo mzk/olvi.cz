@@ -16,7 +16,7 @@
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 	<title>{$title} - Vinotéka OLVI</title>
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/all.css">
-	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/all.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	{if $isMobile}
 	<script src="{$basePath}/js/all-mobile.js"></script>
@@ -37,7 +37,7 @@
 		{/snippet}
 	</div>
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-2 hidden-print">
 			{snippet menubox}
 			<ul class="nav nav-pills nav-stacked">
 				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default#obsah" class="ajax menu">O nás</a></li>
@@ -66,7 +66,7 @@
 
 			shuffle($images);
 			?>
-			<div class="visible-lg">
+			<div class="visible-lg hidden-print">
 			{for $i = 0; $i < 4; $i++}
 			<a href="/images/{$images[$i]}"><img src="/images/mini/{$images[$i]}" width="200px"/></a>
 			{/for}
@@ -82,10 +82,8 @@
 		<p>&copy; {? echo date('Y')} <a n:href="//Homepage:">Vinotéka OLVI.cz</a>.<br/>
 			Stránka generována {? $date = date(time());}{$date|date:"d.m. Y, H:i:s"}
 			za <?php echo round(\Nette\Diagnostics\Debugger::timer(), 4); ?>s</p>
+		<p>www stránky naprogramoval <a href="http://salek.info">Olda Šálek</a></p>
 	</div>
-	<script type="text/javascript">
-
-	</script>
 </div>
 </body>
 </html>
