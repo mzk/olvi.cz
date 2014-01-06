@@ -518,4 +518,3 @@
 $(function () {
 	$.nette.init();
 });
-

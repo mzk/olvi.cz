@@ -170,4 +170,4 @@ abstract class TestBaseCase extends Tester\TestCase
 	{
 		file_put_contents(__DIR__ . '/../../temp/' . get_called_class() . '-' . rand(1, 99) . '.html', (string)$source->getSource());
 	}
-} 
+}
