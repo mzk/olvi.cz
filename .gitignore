@@ -6,3 +6,6 @@ tmp
 temp
 log
 app/config/config.local.neon
+www/css/all.css
+www/js/all-desktop.js
+www/js/all-mobile.js

@@ -15,21 +15,14 @@
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 	<title>{$title} - Vinotéka OLVI</title>
-	{if $isDevel}
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
-	{else}
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">
-	{/if}
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/all.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-	{if !$isMobile}
-	<script src="{$basePath}/js/jquery-1.10.2.js"></script>
+	{if $isMobile}
+	<script src="{$basePath}/js/all-mobile.js"></script>
+	{else}
+	<script src="{$basePath}/js/all-desktop.js"></script>
 	{/if}
-	<script src="{$basePath}/js/netteForms.js"></script>
-	<script src="{$basePath}/js/nette.ajax.js"></script>
-	<script src="{$basePath}/js/nette.history.js"></script>
-	<script src="{$basePath}/js/scripts.js"></script>
 </head>
 
 <body>
