@@ -22,6 +22,7 @@ function id($val) {
 
 $configurator = new Nette\Configurator;
 $configurator->setDebugMode(true);
+define('IS_DEVEL', true);
 $configurator->setTempDirectory(__DIR__ . '/../temp');
 $configurator->createRobotLoader()
 	->addDirectory(__DIR__ . '/../app')
