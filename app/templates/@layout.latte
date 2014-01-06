@@ -38,6 +38,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2 hidden-print">
+			<div class="bs-sidebar affix">
 			{snippet menubox}
 			<ul class="nav nav-pills nav-stacked">
 				<li {if $pageName == 'default'}class="active"{/if}><a n:href="Homepage:default#obsah" class="ajax menu">O nás</a></li>
@@ -50,6 +51,7 @@
 				<li {if $pageName == 'kontakty'}class="active"{/if}><a n:href="Homepage:static#obsah 'kontakty'" class="ajax menu">Kontakty</a></li>
 			</ul>
 			{/snippet}
+		</div>
 		</div>
 		<div class="col-md-10">
 			{if !$isMobile}
