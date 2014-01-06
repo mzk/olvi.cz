@@ -1,0 +1,37 @@
+{
+	"name": "root/vinotekaolvi.cz",
+	"authors": [
+		{
+			"name": "Olda Salek",
+			"email": "mzk@mozektevidi.net"
+		}
+	],
+	"minimum-stability": "dev",
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "cli-minify",
+				"version": "dev-master",
+				"source": {
+					"url": "https://github.com/banago/CLI-Minify.git",
+					"type": "git",
+					"reference": "master"
+				},
+				"dist": {
+					"url": "https://github.com/banago/cli-minify/archive/master.zip",
+					"type": "zip"
+				}
+			}
+		}
+	],
+	"require": {
+		"php": ">=5.3.2",
+		"nette/nette": "2.1.*@dev",
+		"nette/tester": "dev-master",
+		"texy/texy": "dev-master"
+	},
+	"require-dev": {
+		"packagist/yuicompressor-bin": "dev-master"
+	}
+}

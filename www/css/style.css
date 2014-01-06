@@ -1,0 +1,42 @@
+/* try http://purecss.io/ */
+
+body {
+	background-color: #FDF5C0;
+}
+
+html, body {
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+}
+
+.container {
+	background-color: #FDF5CE;
+}
+
+a {
+	color: darkred;
+}
+
+a:hover,
+a:focus {
+	color: darkred;
+	text-decoration: underline;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+	color: #ffffff;
+	background-color: darkred;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+	text-decoration: none;
+	color: white;
+	background-color: darkred;
+}
+
+#footer {
+	background-color: #FDF5CD;
+}
