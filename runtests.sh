@@ -44,7 +44,7 @@ done
 
 if $aopt; then
 	echo "\n\033[1;32m================= code-checker.php ================\033[0m"
-	php tests/code-checker.php -l;
+	php tests/code-checker.php -lf;
 fi
 
 if $bopt; then
@@ -74,7 +74,7 @@ fi
 
 
 if $hopt; then
-	echo "use -a for code-checker.php -l"
+	echo "use -a for code-checker.php -lf"
 	echo "use -b for checkSyntax.sh"
 	echo "use -c for Nette Tester"
 	echo "use -e for copy master database to test database"
