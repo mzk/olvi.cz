@@ -30,7 +30,7 @@
 	<div class="page-header">
 		<h1><a n:href="Homepage:">Vinotéka OLVI - Vína z Moravy</a></h1>
 
-		<p class="lead"></p>
+		<p class="lead">Vinotéka OLVI - Vína z Moravy v Poděbradech</p>
 
 		{snippet flashes}
 		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
@@ -56,15 +56,20 @@
 		<div class="col-md-10">
 			{if !$isMobile}
 			<?php
-			$imagesOil = array('oleje-1.jpg', 'oleje-2.jpg', 'oleje-3.jpg');
+			$imagesOil = array('oleje-1.jpg', 'oleje-2.jpg', 'oleje-3.jpg', 'oleje-3.jpg');
 			$imagesVine = function () {
 				$images = array();
-				for ($i = 1; $i < 11; $i++) {
-					$images[] = 'vina-' . sprintf("%02d", $i) . '.jpg';
+				for ($i = 1; $i < 7; $i++) {
+					$images[] = 'nemcicky-'.sprintf('%d', $i).'.jpg';
 				}
+
 				return $images;
 			};
-			$images = array_merge($imagesOil, $imagesVine());
+			if ($pageName == 'oleje') {
+				$images = $imagesOil;
+			} else {
+				$images = $imagesVine();
+			}
 
 			shuffle($images);
 			?>
