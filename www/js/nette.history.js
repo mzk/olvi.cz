@@ -1,4 +1,4 @@
-(function($, undefined) {
+(function ($, undefined) {
 
 // Is History API reliably supported? (based on Modernizr & PJAX)
 	if (!(window.history && history.pushState && window.history.replaceState && !navigator.userAgent.match(/((iPod|iPhone|iPad).+\bOS\s+[1-4]|WebApps\/.+CFNetwork)/))) return;
@@ -7,7 +7,7 @@
 
 	var findSnippets = function () {
 		var result = [];
-		$('[id^="snippet--"]').each(function () {
+		$('[id^="snippet-"]').each(function () {
 			var $el = $(this);
 			result.push({
 				id: $el.attr('id'),
@@ -28,23 +28,25 @@
 			var snippetsExt;
 			if (this.cache && (snippetsExt = $.nette.ext('snippets'))) {
 				this.handleUI = function (domCache) {
+					var snippets = {};
 					$.each(domCache, function () {
-						snippetsExt.updateSnippet(this.id, this.html, true);
+						snippets[this.id] = this.html;
 					});
+					snippetsExt.updateSnippets(snippets, true);
 					$.nette.load();
 				};
 			}
 
-			history.replaceState(this.initialState = {
-				nette: true,
-				href: window.location.href,
-				title: document.title,
-				ui: findSnippets()
-			}, document.title, window.location.href);
+			var popped = !!('state' in window.history) && !!window.history.state;
+			var initialUrl = window.location.href;
 
 			$(window).on('popstate.nette', $.proxy(function (e) {
 				var state = e.originalEvent.state || this.initialState;
-				if (window.history.ready || !state || !state.nette) return;
+				var initialPop = (popped && initialUrl == state.href);
+				popped = true;
+				if (initialPop) {
+					return;
+				}
 				if (this.cache && state.ui) {
 					handleState(this, 'UI', [state.ui]);
 					handleState(this, 'title', [state.title]);
@@ -55,6 +57,13 @@
 					});
 				}
 			}, this));
+
+			history.replaceState(this.initialState = {
+				nette: true,
+				href: window.location.href,
+				title: document.title,
+				ui: findSnippets()
+			}, document.title, window.location.href);
 		},
 		before: function (xhr, settings) {
 			if (!settings.nette) {
@@ -71,7 +80,7 @@
 			var redirect = payload.redirect || payload.url; // backwards compatibility for 'url'
 			if (redirect) {
 				var regexp = new RegExp('//' + window.location.host + '($|/)');
-				if ((redirect.substring(0,4) === 'http') ? regexp.test(redirect) : true) {
+				if ((redirect.substring(0, 4) === 'http') ? regexp.test(redirect) : true) {
 					this.href = redirect;
 				} else {
 					window.location.href = redirect;
